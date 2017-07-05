@@ -15,12 +15,12 @@ puts "----------"
 puts @store10.errors.full_messages
 
 
-e1 = @store10.employees.create(first_name: "Otto1", last_name: "Hu", hourly_rate: 49)
-e2 = @store10.employees.create(first_name: "Jack2", last_name: "Wu", hourly_rate: 100)
-e3 = @store10.employees.create(first_name: "Mike3", last_name: "Hu", hourly_rate: 80) #this won't rollback since it's two queries
+@e1 = @store10.employees.create(first_name: "Otto1", last_name: "Hu", hourly_rate: 49)
+@e2 = @store10.employees.create(first_name: "Jack2", last_name: "Wu", hourly_rate: 100)
+@e3 = @store10.employees.create(first_name: "Mike3", last_name: "Hu", hourly_rate: 80) #this won't rollback since it's two queries
 
-if(e1.errors)
-  puts e1.errors.full_messages
+if(@e1.errors)
+  puts @e1.errors.full_messages
 end
 
 @employeeX = Employee.create(first_name: "Mike3", last_name: "Hu", hourly_rate: 100)
